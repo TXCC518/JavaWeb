@@ -56,6 +56,7 @@ public class DeptListTest extends HttpServlet {
         out.print("          <th>部门地址</th>");
         out.print("          <th>操作</th>");
         out.print("      </tr>");
+        String path = request.getContextPath();
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -78,7 +79,7 @@ public class DeptListTest extends HttpServlet {
                 out.print("      <th>");
                 out.print("          <a href='#'>删除</a>");
                 out.print("          <a href='#'>修改</a>");
-                out.print("          <a href='#'>详情</a>");
+                out.print("          <a href='"+path+"/dept/detail?deptno="+deptno+"'>详情</a>");
                 out.print("      </th>");
                 out.print("  </tr>");
             }

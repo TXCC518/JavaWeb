@@ -11,4 +11,13 @@
         <servlet-name>DeptListTest</servlet-name>
         <url-pattern>/dept/list</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeptDetailList</servlet-name>
+        <servlet-class>cn.txcc.servlet.DeptDetailTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeptDetailList</servlet-name>
+        <url-pattern>/dept/detail</url-pattern>
+    </servlet-mapping>
 </web-app>
