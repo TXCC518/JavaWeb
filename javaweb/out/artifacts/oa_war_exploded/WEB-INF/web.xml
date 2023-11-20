@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+<!--    部门列表页面-->
     <servlet>
         <servlet-name>DeptListTest</servlet-name>
         <servlet-class>cn.txcc.servlet.DeptListTest</servlet-class>
@@ -12,6 +13,7 @@
         <url-pattern>/dept/list</url-pattern>
     </servlet-mapping>
 
+<!--    部门详情-->
     <servlet>
         <servlet-name>DeptDetailList</servlet-name>
         <servlet-class>cn.txcc.servlet.DeptDetailTest</servlet-class>
@@ -19,5 +21,25 @@
     <servlet-mapping>
         <servlet-name>DeptDetailList</servlet-name>
         <url-pattern>/dept/detail</url-pattern>
+    </servlet-mapping>
+
+<!--    删除部门-->
+    <servlet>
+        <servlet-name>DeptRemoveTest</servlet-name>
+        <servlet-class>cn.txcc.servlet.DeptRemoveTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeptRemoveTest</servlet-name>
+        <url-pattern>/dept/remove</url-pattern>
+    </servlet-mapping>
+
+<!--    新增部门-->
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>cn.txcc.servlet.DeptAddTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/dept/add</url-pattern>
     </servlet-mapping>
 </web-app>
