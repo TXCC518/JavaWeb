@@ -92,7 +92,7 @@ public class DeptListTest extends HttpServlet {
                 out.print("      <td>"+loc+"</td>");
                 out.print("      <th>");
                 out.print("          <a href='javascript:void(0)' onclick='del("+deptno+")'>删除</a>");
-                out.print("          <a href='#'>修改</a>");
+                out.print("          <a href='"+path+"/dept/save?deptno="+deptno+"'>修改</a>");
                 out.print("          <a href='"+path+"/dept/detail?deptno="+deptno+"'>详情</a>");
                 out.print("      </th>");
                 out.print("  </tr>");

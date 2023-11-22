@@ -42,4 +42,23 @@
         <servlet-name>add</servlet-name>
         <url-pattern>/dept/add</url-pattern>
     </servlet-mapping>
+
+<!--    修改部门信息-->
+    <servlet>
+        <servlet-name>save</servlet-name>
+        <servlet-class>cn.txcc.servlet.DeptSaveTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>save</servlet-name>
+        <url-pattern>/dept/save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>query</servlet-name>
+        <servlet-class>cn.txcc.servlet.DeptQueryTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>query</servlet-name>
+        <url-pattern>/dept/query</url-pattern>
+    </servlet-mapping>
 </web-app>
