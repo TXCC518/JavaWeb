@@ -64,10 +64,10 @@ public class DeptTest extends HttpServlet {
         }
         if(count == 1){
             //request.getRequestDispatcher("/dept/list").forward(request, response);
-            response.sendRedirect("/dept/list");
+            response.sendRedirect(request.getContextPath()+"/dept/list");
         }else{
             //request.getRequestDispatcher("/error.html").forward(request, response);
-            response.sendRedirect("/error.html");
+            response.sendRedirect(request.getContextPath()+"/error.html");
         }
     }
 
@@ -115,7 +115,7 @@ public class DeptTest extends HttpServlet {
         out.print("</html>");
     }
 
-    private void doAdd(HttpServletRequest request, HttpServletResponse response) {
+    private void doAdd(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("html/text;charset=utf-8");
         String deptno = request.getParameter("deptno");
         String dname = request.getParameter("dname");
@@ -137,9 +137,11 @@ public class DeptTest extends HttpServlet {
             UDtils.close(conn, psmt, null);
         }
         if(count == 1){
-            request.getRequestDispatcher("/dept/list").forward(request, response);
+            //request.getRequestDispatcher("/dept/list").forward(request, response);
+            response.sendRedirect(request.getContextPath()+"/dept/list");
         }else {
-            request.getRequestDispatcher("/error.html").forward(request, response);
+            //request.getRequestDispatcher("/error.html").forward(request, response);
+            response.sendRedirect(request.getContextPath()+"/error.html");
         }
     }
 
@@ -156,9 +158,11 @@ public class DeptTest extends HttpServlet {
             pstm.setString(1, deptno);
             int res = pstm.executeUpdate();
             if(res == 1){
-                request.getRequestDispatcher("/dept/list").forward(request, response);
+                //request.getRequestDispatcher("/dept/list").forward(request, response);
+                response.sendRedirect(request.getContextPath()+"/dept/list");
             }else{
-                request.getRequestDispatcher("/error.html").forward(request, response);
+                //request.getRequestDispatcher("/error.html").forward(request, response);
+                response.sendRedirect(request.getContextPath()+"/error.html");
             }
 
         } catch (SQLException e) {
