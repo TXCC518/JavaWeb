@@ -1,11 +1,17 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>欢迎页面</title>
+  <title>Login Page</title>
 </head>
 <body>
-<a href="<%= request.getContextPath()%>/dept/list">展示部门信息</a>
+<h1>Login Page</h1>
+<form action="<%= request.getContextPath()%>/user/login" method="post">
+  username：<input type="text" name="username" ><br>
+  password：<input type="password" name="password" ><br>
+  <input type="submit" value="Login">
+</form>
 </body>
 </html>

@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -27,17 +28,22 @@ public class DeptServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String servletPath = request.getServletPath();
-        if("/dept/list".equals(servletPath)){
-            doList(request, response);
-        }else if("/dept/remove".equals(servletPath)){
-            doRemove(request, response);
-        }else if("/dept/add".equals(servletPath)){
-            doAdd(request, response);
-        }else if("/dept/detail".equals(servletPath)){
-            doDetail(request, response);
-        }else if("/dept/query".equals(servletPath)){
-            doQuery(request, response);
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute("username") != null) {
+            String servletPath = request.getServletPath();
+            if("/dept/list".equals(servletPath)){
+                doList(request, response);
+            }else if("/dept/remove".equals(servletPath)){
+                doRemove(request, response);
+            }else if("/dept/add".equals(servletPath)){
+                doAdd(request, response);
+            }else if("/dept/detail".equals(servletPath)){
+                doDetail(request, response);
+            }else if("/dept/query".equals(servletPath)){
+                doQuery(request, response);
+            }
+        }else{
+            response.sendRedirect(request.getContextPath());
         }
     }
 

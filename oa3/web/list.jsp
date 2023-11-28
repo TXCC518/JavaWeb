@@ -21,6 +21,10 @@
         th, td {
             padding: 10px 30px;
         }
+
+        a {
+            text-decoration: none;
+        }
     </style>
 </head>
 <script type="text/javascript">
@@ -31,6 +35,8 @@
     }
 </script>
 <body>
+<h2>欢迎：<%= session.getAttribute("username")%></h2>
+<a href="<%= request.getContextPath()%>/user/logout">【安全退出】</a>
 <h1>部门列表</h1>
 <hr>
 <table>
