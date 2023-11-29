@@ -3,10 +3,7 @@ package cn.txcc.servlet;
 import cn.txcc.utils.UDtils;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -38,7 +35,7 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
-            response.sendRedirect(request.getContextPath());
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
     }
 
@@ -58,6 +55,18 @@ public class UserServlet extends HttpServlet {
             rs = ps.executeQuery();
             if(rs.next()){
                 // 登陆成功，保存session对象，跳转到部门列表页面
+                String flag = request.getParameter("flag");
+                System.out.println(flag);
+                if("1".equals(flag)) {
+                    Cookie cookie1 = new Cookie("username", username);
+                    Cookie cookie2 = new Cookie("password", password);
+                    cookie1.setMaxAge(60 * 60 * 24 * 10);
+                    cookie2.setMaxAge(60 * 60 * 24 * 10);
+                    cookie1.setPath(request.getContextPath());
+                    cookie2.setPath(request.getContextPath());
+                    response.addCookie(cookie1);
+                    response.addCookie(cookie2);
+                }
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
                 response.sendRedirect(request.getContextPath() + "/dept/list");
